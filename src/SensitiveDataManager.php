@@ -13,7 +13,7 @@ class SensitiveDataManager implements EventListenerInterface
     /**
      * @param SensitiveDataEventListenerInterface[] $sensitiveDataProcessors
      */
-    public function __construct(array $sensitiveDataProcessors)
+    public function __construct(array $sensitiveDataProcessors = array())
     {
         foreach ($sensitiveDataProcessors as $sensitiveDataProcessor) {
             $this->subscribe($sensitiveDataProcessor);
