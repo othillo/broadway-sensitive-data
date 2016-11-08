@@ -32,7 +32,7 @@ class TestProcessor extends SensitiveDataProcessor
 {
     private $isCalled = false;
 
-    public function applyTestEvent($event, DomainMessage $domainMessage, SensitiveData $sensitiveData)
+    public function handleTestEvent($event, DomainMessage $domainMessage, SensitiveData $sensitiveData)
     {
         $this->isCalled = true;
     }
