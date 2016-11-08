@@ -22,6 +22,6 @@ abstract class SensitiveDataProcessor implements SensitiveDataEventListenerInter
     {
         $classParts = explode('\\', get_class($event));
 
-        return 'apply' . end($classParts);
+        return 'handle' . end($classParts);
     }
 }
