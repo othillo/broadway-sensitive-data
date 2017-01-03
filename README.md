@@ -1,3 +1,5 @@
+# This package is abandoned. Use https://github.com/broadway/broadway-sensitive-data instead.
+
 othillo/broadway-sensitive-data
 ===============================
 
