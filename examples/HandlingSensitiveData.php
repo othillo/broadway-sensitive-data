@@ -12,7 +12,7 @@ class Invitation extends Broadway\EventSourcing\EventSourcedAggregateRoot
     /**
      * Factory method to create an invitation.
      */
-    public static function invite($invitationId, $name)
+    public static function invite(string $invitationId, string $name)
     {
         $invitation = new Invitation();
 
@@ -27,7 +27,7 @@ class Invitation extends Broadway\EventSourcing\EventSourcedAggregateRoot
      *
      * {@inheritDoc}
      */
-    public function getAggregateRootId()
+    public function getAggregateRootId(): string
     {
         return $this->invitationId;
     }
@@ -48,7 +48,7 @@ class Invitation extends Broadway\EventSourcing\EventSourcedAggregateRoot
  */
 class InvitationRepository extends Broadway\EventSourcing\EventSourcingRepository
 {
-    public function __construct(Broadway\EventStore\EventStoreInterface $eventStore, Broadway\EventHandling\EventBusInterface $eventBus)
+    public function __construct(Broadway\EventStore\EventStore $eventStore, Broadway\EventHandling\EventBus $eventBus)
     {
         parent::__construct($eventStore, $eventBus, 'Invitation', new Broadway\EventSourcing\AggregateFactory\PublicConstructorAggregateFactory());
     }
@@ -100,7 +100,7 @@ class InvitedEvent
  * In the end a command handler listens for commands and translates commands to
  * method calls on the actual aggregate roots.
  */
-class InvitationCommandHandler extends Broadway\CommandHandling\CommandHandler
+class InvitationCommandHandler extends \Broadway\CommandHandling\SimpleCommandHandler
 {
     private $repository;
     private $sensitiveDataManager;
